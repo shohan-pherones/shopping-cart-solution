@@ -1,5 +1,17 @@
-document.getElementById("case-plus").addEventListener("click", function () {
+function updateCaseNumber(isIncreasing) {
   const caseInput = document.getElementById("case-number");
   const caseNumber = parseInt(caseInput.value);
-  caseInput.value = caseNumber + 1;
+  if (isIncreasing == true) {
+    caseInput.value = caseNumber + 1;
+  } else if (caseNumber > 0) {
+    caseInput.value = caseNumber - 1;
+  }
+}
+
+document.getElementById("case-plus").addEventListener("click", function () {
+  updateCaseNumber(true);
+});
+
+document.getElementById("case-minus").addEventListener("click", function () {
+  updateCaseNumber(false);
 });
